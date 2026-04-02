@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dungeon Escape — Madhav Ramakrishnan</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../project-page.css">
+</head>
+<body class="pixel-grid-bg">
+
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Madhav Ramakrishnan</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../projects.html" class="active">Projects</a></li>
+    <li><a href="../about.html">About & Contact</a></li>
+  </ul>
+  <button class="nav-hamburger">☰</button>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="project-hero">
+    <div class="project-hero-meta">
+      <a href="../projects.html" class="back-link">← All Projects</a>
+      <h1 class="project-hero-title glitch" style="color:var(--accent)">Dungeon<br>Escape</h1>
+      <div class="project-subtitle">Roguelike · Unity / C#</div>
+      <p class="project-description">
+        A Unity roguelike with procedurally generated maps and a modular weapon system. No two runs look the same — the dungeon layout is generated from a BSP tree, and weapons are built from stackable ScriptableObject modifiers so builds emerge naturally rather than being predetermined. Custom A* handles enemy pathfinding.
+      </p>
+      <div class="project-links">
+        <a href="https://youtube.com/trailer-link" target="_blank" class="btn btn-gold">▶ View Trailer</a>
+        <a href="https://github.com/tigerlordz99" target="_blank" class="btn btn-ghost">GitHub</a>
+      </div>
+      <div class="project-details-grid">
+        <div class="detail-cell">
+          <div class="detail-label">ENGINE</div>
+          <div class="detail-value">Unity / C#</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-label">PLATFORM</div>
+          <div class="detail-value">PC (Windows)</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-label">GENRE</div>
+          <div class="detail-value">Roguelike / Dungeon</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-media fade-up">
+      <img class="main-screenshot" src="../dungeon_escape.png" alt="Dungeon Escape"
+           onerror="this.src='https://placehold.co/800x450/111220/f5c518?text=Dungeon+Escape'">
+      <p class="screenshot-caption">// PROCEDURAL DUNGEON LAYOUT</p>
+    </div>
+  </div>
+
+  <!-- Contributions -->
+  <section class="prose-section">
+    <div class="section-label">// GROUP PROJECT</div>
+    <h2 class="section-title fade-up">My <span style="color:var(--accent)">Contributions</span></h2>
+    <div class="divider"></div>
+    <div class="prose-body fade-up">
+      <ul>
+        <li>Contribution one — describe what you built or owned here.</li>
+        <li>Contribution two — describe what you built or owned here.</li>
+        <li>Contribution three — describe what you built or owned here.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="prose-section">
+    <h2 class="section-title fade-up">Technical <span style="color:var(--accent)">Breakdown</span></h2>
+    <div class="divider"></div>
+    <div class="prose-body fade-up">
+      <ul>
+        <li><strong style="color:var(--text)">Procedural Maps —</strong> BSP tree splits the space, then handcrafted room prefabs get placed and connected with generated corridors. Gives each run real structure without feeling completely random.</li>
+        <li><strong style="color:var(--text)">Modular Weapon System —</strong> Weapons are built from ScriptableObject modifiers that stack on each other. The goal was for players to find combinations that felt like their own discovery rather than something we put there.</li>
+        <li><strong style="color:var(--text)">Enemy Pathfinding —</strong> Custom A* tuned for tile-based layouts, with dynamic recalculation when obstacles move. Enemies share awareness — if one sees you, others start closing in.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="project-nav">
+    <a href="vrunner.html" class="project-nav-link fade-up">
+      <span class="nav-link-label">← PREV PROJECT</span>
+      <div class="nav-link-title">VRunner</div>
+    </a>
+    <a href="tempest.html" class="project-nav-link next fade-up">
+      <span class="nav-link-label">NEXT PROJECT →</span>
+      <div class="nav-link-title">Tempest</div>
+    </a>
+  </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="../about.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>
+  </footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+<script src="../main.js"></script>
+</body>
+</html>

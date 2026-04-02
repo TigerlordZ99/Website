@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeatBrawler — Madhav Ramakrishnan</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../project-page.css">
+</head>
+<body class="pixel-grid-bg">
+
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Madhav Ramakrishnan</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../projects.html" class="active">Projects</a></li>
+    <li><a href="../about.html">About & Contact</a></li>
+  </ul>
+  <button class="nav-hamburger">☰</button>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="project-hero">
+    <div class="project-hero-meta">
+      <a href="../projects.html" class="back-link">← All Projects</a>
+      <h1 class="project-hero-title glitch" style="color:var(--accent2)">Beat<br>Brawler</h1>
+      <div class="project-subtitle">Rhythm Fighter · Unity / C#</div>
+      <p class="project-description">
+        A fighting game where timing your attacks to the beat actually matters. Hit on-beat and you get bonus damage and combo effects — miss and you're left open. Each AI opponent runs on a unique rhythm pattern pulled from the track, so figuring them out is part of the game. Built in Unity with a custom HFSM/Behavior Tree AI and Python-extracted spectral data to adjust aggression based on the music's energy.
+      </p>
+      <div class="project-links">
+        <a href="https://youtube.com/video-link" target="_blank" class="btn btn-gold">▶ Watch Gameplay</a>
+        <a href="https://github.com/tigerlordz99" target="_blank" class="btn btn-ghost">GitHub</a>
+      </div>
+      <div class="project-details-grid">
+        <div class="detail-cell">
+          <div class="detail-label">ENGINE</div>
+          <div class="detail-value">Unity / C#</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-label">PLATFORM</div>
+          <div class="detail-value">PC (Windows)</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-label">GENRE</div>
+          <div class="detail-value">Rhythm / Fighter</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-media fade-up">
+      <img class="main-screenshot" src="../beatbrawler.png" alt="BeatBrawler"
+           onerror="this.src='https://placehold.co/800x450/111220/e0415a?text=BeatBrawler'">
+      <p class="screenshot-caption">// BEAT-SYNCED COMBAT</p>
+    </div>
+  </div>
+
+  <section class="prose-section">
+    <h2 class="section-title fade-up">Technical <span style="color:var(--accent)">Breakdown</span></h2>
+    <div class="divider"></div>
+    <div class="prose-body fade-up">
+      <ul>
+        <li><strong style="color:var(--text)">Beat-Sync Combat —</strong> Custom BPM tracker with ±50ms timing windows. Hitting on-beat triggers combo multipliers and VFX tied directly to the music — missing costs you more than just damage.</li>
+        <li><strong style="color:var(--text)">HFSM + Behavior Tree AI —</strong> Each opponent uses a Hierarchical Finite State Machine combined with a Behavior Tree for state decisions. Their attack patterns are tied to the track so every fight plays differently.</li>
+        <li><strong style="color:var(--text)">Spectral Data Pipeline —</strong> Python scripts extract energy levels from the audio file and feed them into the AI — enemies get more aggressive during high-energy sections of the song.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="project-nav">
+    <a href="cinerecs.html" class="project-nav-link fade-up">
+      <span class="nav-link-label">← PREV PROJECT</span>
+      <div class="nav-link-title">CineRecs</div>
+    </a>
+    <a href="vrunner.html" class="project-nav-link next fade-up">
+      <span class="nav-link-label">NEXT PROJECT →</span>
+      <div class="nav-link-title">VRunner</div>
+    </a>
+  </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="../about.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>
+  </footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+<script src="../main.js"></script>
+</body>
+</html>

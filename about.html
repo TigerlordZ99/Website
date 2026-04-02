@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Madhav Ramakrishnan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero {
+      padding: 5rem 2.5rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 850px) {
+      .about-hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem 2.5rem; }
+      .about-image-wrap { max-width: 280px; }
+      .profile-img { max-width: 100%; }
+      .img-deco { display: none; }
+    }
+    @media (max-width: 600px) {
+      .about-name { font-size: 2.2rem; }
+    }
+
+    .about-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .about-role {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent3);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .about-bio {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-image-wrap { position: relative; }
+
+    .profile-img {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    .img-deco {
+      position: absolute;
+      top: 16px; left: 16px; right: -16px; bottom: -16px;
+      border: 1px solid var(--border);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .img-label {
+      margin-top: 1rem;
+      font-family: var(--pixel);
+      font-size: 0.38rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .skills-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-section, .experience-section, .contact-section { padding: 3rem 1.25rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 500px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .contact-link-row { padding: 0.8rem; }
+      .contact-link-icon { width: 48px; font-size: 0.38rem; }
+      .form-input, .form-textarea { font-size: 0.75rem; }
+    }
+
+    .skill-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      transition: border-color 0.3s;
+    }
+    .skill-block:hover { border-color: var(--accent3); }
+
+    .skill-block-title {
+      font-family: var(--pixel);
+      font-size: 0.4rem;
+      color: var(--accent3);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .skill-item {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-item::before {
+      content: '›';
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    .experience-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .exp-list {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+
+    @media (max-width: 600px) {
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .exp-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-org {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent3);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.1em;
+    }
+
+    .exp-desc {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .contact-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 6rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .contact-intro {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-family: var(--body);
+    }
+
+    .contact-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-link-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+      color: inherit;
+    }
+
+    .contact-link-row:hover {
+      border-color: var(--accent);
+      background: var(--surface);
+    }
+
+    .contact-link-icon {
+      font-family: var(--pixel);
+      font-size: 0.45rem;
+      color: var(--accent);
+      width: 60px;
+      flex-shrink: 0;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-link-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text);
+    }
+
+    .contact-link-sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-label {
+      font-family: var(--pixel);
+      font-size: 0.38rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .form-input,
+    .form-textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      padding: 0.8rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus { border-color: var(--accent3); }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--muted); opacity: 0.6; }
+
+    .form-textarea { min-height: 120px; }
+
+    .form-note {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--muted);
+      margin-top: -0.4rem;
+    }
+  </style>
+</head>
+<body class="pixel-grid-bg">
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Madhav Ramakrishnan</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html" class="active">About & Contact</a></li>
+  </ul>
+  <button class="nav-hamburger">☰</button>
+</nav>
+
+<div class="page-wrapper">
+
+  <!-- ABOUT HERO -->
+  <div class="about-hero">
+    <div class="fade-up">
+      <div class="hero-eyebrow">About Me</div>
+      <h1 class="about-name">Madhav<br><span style="color:var(--accent)">Ramakrishnan</span></h1>
+      <div class="about-role">Game Developer · Unity · React · Python</div>
+      <p class="about-bio">
+        I'm a game developer based in Los Angeles. I graduated from UC Santa Cruz with a degree in Computer Science: Game Design, and I've spent the last few years building games across Unity, Phaser, and React Native — from VR runners to rhythm fighters to AR fitness apps.
+      </p>
+      <p class="about-bio">
+        I care about the feel of things — how a jump lands, how a beat syncs, how a system teaches itself to the player. Outside of games I've also done research work in procedural generation and shipped a couple of web apps.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;">
+        <span class="tag">Unity / C#</span>
+        <span class="tag">Python</span>
+        <span class="tag">React Native</span>
+        <span class="tag">Procedural Gen</span>
+      </div>
+      <div style="margin-top:1.5rem;display:flex;gap:0.8rem;flex-wrap:wrap;">
+        <a href="https://drive.google.com/your-resume-link" target="_blank" class="btn btn-gold">↓ Resume</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="about-image-wrap fade-up">
+      <img class="profile-img" src="me.png" alt="Madhav Ramakrishnan"
+           onerror="this.src='https://placehold.co/360x480/1a1528/a78bfa?text=Madhav+R.'">
+      <div class="img-deco"></div>
+      <div class="img-label">// MADHAV RAMAKRISHNAN — GAME DEVELOPER</div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <section class="skills-section">
+    <div class="section-label">// TECH STACK</div>
+    <h2 class="section-title fade-up">Skills &amp;<br><span style="color:var(--accent)">Tools</span></h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-block fade-up">
+        <div class="skill-block-title">LANGUAGES</div>
+        <div class="skill-list">
+          <span class="skill-item">C#</span>
+          <span class="skill-item">Python</span>
+          <span class="skill-item">JavaScript / TS</span>
+        </div>
+      </div>
+      <div class="skill-block fade-up">
+        <div class="skill-block-title">FRAMEWORKS</div>
+        <div class="skill-list">
+          <span class="skill-item">Unity</span>
+          <span class="skill-item">React / Next.js</span>
+          <span class="skill-item">React Native</span>
+          <span class="skill-item">Phaser</span>
+        </div>
+      </div>
+      <div class="skill-block fade-up">
+        <div class="skill-block-title">TOOLS</div>
+        <div class="skill-list">
+          <span class="skill-item">Git / GitHub</span>
+          <span class="skill-item">Figma</span>
+          <span class="skill-item">NumPy</span>
+        </div>
+      </div>
+      <div class="skill-block fade-up">
+        <div class="skill-block-title">AREAS</div>
+        <div class="skill-list">
+          <span class="skill-item">AI / Behavior Systems</span>
+          <span class="skill-item">Procedural Gen</span>
+          <span class="skill-item">Physics Systems</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience-section">
+    <div class="section-label">// EXPERIENCE</div>
+    <h2 class="section-title fade-up">Experience &amp;<br><span style="color:var(--accent)">Background</span></h2>
+    <div class="divider"></div>
+    <div class="exp-list">
+      <div class="exp-item fade-up">
+        <div class="exp-date">June 2025 – Present</div>
+        <div>
+          <div class="exp-title">Software Developer & Research Assistant</div>
+          <div class="exp-org">Dr. Markus Eger Lab · UC Santa Cruz</div>
+          <div class="exp-desc">Built procedural generation systems for a Minecraft world submitted to the IEEE Conference on Games. Wrote Python and Amulet API tooling to generate 3D structures automatically, and cut compute time 25% using flood fill and spatial segmentation.</div>
+        </div>
+      </div>
+      <div class="exp-item fade-up">
+        <div class="exp-date">2023 – 2026</div>
+        <div>
+          <div class="exp-title">B.S. Computer Science: Computer Game Design</div>
+          <div class="exp-org">University of California, Santa Cruz</div>
+          <div class="exp-desc">Focused on game systems, AI, and the engineering side of interactive experiences. Relevant coursework: Game Mechanics, AI in Games, Computer Graphics, Procedural Content Generation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-label">// GET IN TOUCH</div>
+    <h2 class="section-title fade-up">Get In<br><span style="color:var(--accent)">Touch</span></h2>
+    <div class="divider"></div>
+
+    <div class="contact-grid">
+      <div class="fade-up">
+        <p class="contact-intro">
+          Open to full-time roles in game development and software engineering. If you're working on something interesting or want to talk, reach out.
+        </p>
+        <div class="contact-links-list">
+          <a href="https://github.com/tigerlordz99" target="_blank" class="contact-link-row">
+            <div class="contact-link-icon">GITHUB</div>
+            <div>
+              <div class="contact-link-label">github.com/tigerlordz99</div>
+              <div class="contact-link-sub">Projects & source code</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" class="contact-link-row">
+            <div class="contact-link-icon">LINKEDIN</div>
+            <div>
+              <div class="contact-link-label">linkedin.com/in/madhav-ramakrishnan</div>
+              <div class="contact-link-sub">Professional profile</div>
+            </div>
+          </a>
+          <a href="https://drive.google.com/your-resume-link" target="_blank" class="contact-link-row">
+            <div class="contact-link-icon">RESUME</div>
+            <div>
+              <div class="contact-link-label">View Resume (PDF)</div>
+              <div class="contact-link-sub">Swap with your real Drive link</div>
+            </div>
+          </a>
+          <a href="mailto:madhavramakrishnan99@gmail.com" class="contact-link-row">
+            <div class="contact-link-icon">EMAIL</div>
+            <div>
+              <div class="contact-link-label">madhavramakrishnan99@gmail.com</div>
+              <div class="contact-link-sub">Fastest way to reach me</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <form class="contact-form" onsubmit="handleForm(event)">
+          <div class="form-field">
+            <label class="form-label">YOUR NAME</label>
+            <input type="text" class="form-input" placeholder="John Smith" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">EMAIL</label>
+            <input type="email" class="form-input" placeholder="john@example.com" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">MESSAGE</label>
+            <textarea class="form-textarea" placeholder="Tell me what you're building..." required></textarea>
+          </div>
+          <p class="form-note">// This form opens your mail client.</p>
+          <button type="submit" class="btn btn-gold" style="margin-top:0.5rem;">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="about.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+<script src="main.js"></script>
+<script>
+  function handleForm(e) {
+    e.preventDefault();
+    const name = e.target.querySelector('input[type="text"]').value;
+    const email = e.target.querySelector('input[type="email"]').value;
+    const msg = e.target.querySelector('textarea').value;
+    window.location.href = `mailto:madhavramakrishnan99@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(msg)}%0A%0AFrom: ${encodeURIComponent(email)}`;
+  }
+</script>
+</body>
+</html>

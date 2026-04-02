@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Madhav Ramakrishnan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      padding: 5rem 2.5rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .filter-row {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem 2rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: var(--pixel);
+      font-size: 0.4rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(245, 197, 24, 0.06);
+    }
+
+    .project-list {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem 6rem;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 48px 1fr 280px;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .project-row:first-child { border-top: 1px solid var(--border); }
+    .project-row.hidden { display: none; }
+    .project-row:hover { background: rgba(255,255,255,0.02); }
+    .project-row:hover .row-num { color: var(--accent); }
+    .project-row:hover .row-title { color: var(--accent); }
+    .project-row:hover .row-thumb { border-color: var(--accent); filter: saturate(1); opacity: 0.9; }
+
+    .row-num {
+      font-family: var(--pixel);
+      font-size: 0.45rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .row-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+      align-items: center;
+    }
+
+    .row-tag {
+      font-family: var(--pixel);
+      font-size: 0.35rem;
+      color: var(--accent3);
+      letter-spacing: 0.08em;
+    }
+
+    .row-badge {
+      font-family: var(--pixel);
+      font-size: 0.3rem;
+      padding: 0.2rem 0.45rem;
+      letter-spacing: 0.06em;
+    }
+
+    .row-badge.games {
+      border: 1px solid rgba(167,139,250,0.35);
+      color: var(--accent3);
+    }
+
+    .row-badge.apps {
+      border: 1px solid rgba(245,197,24,0.35);
+      color: var(--accent);
+    }
+
+    .row-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .row-desc {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .row-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      opacity: 0.6;
+      border: 1px solid var(--border);
+      transition: opacity 0.3s, border-color 0.3s, filter 0.3s;
+      filter: saturate(0.6);
+    }
+
+    .row-arrow {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .project-row:hover .row-arrow { opacity: 1; transform: translateY(-50%) translateX(4px); }
+
+    @media (max-width: 700px) {
+      .project-row { grid-template-columns: 32px 1fr; padding: 1.5rem 0; gap: 1rem; }
+      .row-thumb { display: none; }
+      .row-title { font-size: 1.3rem; }
+      .row-desc { font-size: 0.65rem; }
+      .project-list { padding: 0 1.25rem 4rem; }
+      .page-hero { padding: 3.5rem 1.25rem 2rem; }
+      .filter-row { padding: 0 1.25rem 1.5rem; }
+    }
+  </style>
+</head>
+<body class="pixel-grid-bg">
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Madhav Ramakrishnan</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="about.html">About & Contact</a></li>
+  </ul>
+  <button class="nav-hamburger">☰</button>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="page-hero">
+    <div class="hero-eyebrow">Portfolio</div>
+    <h1 class="section-title fade-up">My Work</h1>
+    <div class="divider"></div>
+    <p style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);max-width:520px;" class="fade-up">
+      Games, apps, and everything in between. Click any project for the full breakdown.
+    </p>
+  </div>
+
+  <div class="filter-row">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="games">Games</button>
+    <button class="filter-btn" data-filter="apps">Apps</button>
+  </div>
+
+  <div class="project-list">
+
+    <a href="projects/ghostrunner.html" class="project-row fade-up" data-category="apps">
+      <span class="row-num">01</span>
+      <div class="row-content">
+        <div class="row-tags">
+          <span class="row-tag">REACT NATIVE</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">GPS / AR</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">CRUZHACKS 2026</span>
+        </div>
+        <h2 class="row-title">Ghost Runner <span class="row-badge apps">APP</span></h2>
+        <p class="row-desc">AR fitness app that paces you in real time against a GPS-tracked digital ghost. Won "Wildest Idea" at CruzHacks 2026 out of 89 teams.</p>
+      </div>
+      <img class="row-thumb" src="ghostrunner.png" alt="Ghost Runner"
+           onerror="this.src='https://placehold.co/480x270/120f1c/f5c518?text=Ghost+Runner'">
+      <span class="row-arrow">→</span>
+    </a>
+
+    <a href="projects/cinerecs.html" class="project-row fade-up" data-category="apps">
+      <span class="row-num">02</span>
+      <div class="row-content">
+        <div class="row-tags">
+          <span class="row-tag">NEXT.JS</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">GEMINI API</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">FULL STACK</span>
+        </div>
+        <h2 class="row-title">CineRecs <span class="row-badge apps">APP</span></h2>
+        <p class="row-desc">Movie recommendation engine powered by Gemini. Import your Letterboxd history and get suggestions that account for what you've already seen.</p>
+      </div>
+      <img class="row-thumb" src="cinerecs.png" alt="CineRecs"
+           onerror="this.src='https://placehold.co/480x270/120f1c/a78bfa?text=CineRecs'">
+      <span class="row-arrow">→</span>
+    </a>
+
+    <a href="projects/beatbrawler.html" class="project-row fade-up" data-category="games">
+      <span class="row-num">03</span>
+      <div class="row-content">
+        <div class="row-tags">
+          <span class="row-tag">RHYTHM FIGHTER</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">UNITY / C#</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">AI</span>
+        </div>
+        <h2 class="row-title">BeatBrawler <span class="row-badge games">GAME</span></h2>
+        <p class="row-desc">Fighting game where timing your attacks to the beat actually matters. Custom HFSM/Behavior Tree AI with Python-driven spectral analysis.</p>
+      </div>
+      <img class="row-thumb" src="beatbrawler.png" alt="BeatBrawler"
+           onerror="this.src='https://placehold.co/480x270/120f1c/e0415a?text=BeatBrawler'">
+      <span class="row-arrow">→</span>
+    </a>
+
+    <a href="projects/vrunner.html" class="project-row fade-up" data-category="games">
+      <span class="row-num">04</span>
+      <div class="row-content">
+        <div class="row-tags">
+          <span class="row-tag">VR</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">UNITY / C#</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">SPATIAL AUDIO</span>
+        </div>
+        <h2 class="row-title">VRunner <span class="row-badge games">GAME</span></h2>
+        <p class="row-desc">VR runner built for HMDs. Custom locomotion system designed to keep speed high without causing motion sickness.</p>
+      </div>
+      <img class="row-thumb" src="vrunner.png" alt="VRunner"
+           onerror="this.src='https://placehold.co/480x270/120f1c/a78bfa?text=VRunner'">
+      <span class="row-arrow">→</span>
+    </a>
+
+    <a href="projects/dungeon.html" class="project-row fade-up" data-category="games">
+      <span class="row-num">05</span>
+      <div class="row-content">
+        <div class="row-tags">
+          <span class="row-tag">ROGUELIKE</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">UNITY / C#</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">PROCEDURAL GEN</span>
+        </div>
+        <h2 class="row-title">Dungeon Escape <span class="row-badge games">GAME</span></h2>
+        <p class="row-desc">Roguelike with procedurally generated maps, a modular weapon system, and custom A* pathfinding.</p>
+      </div>
+      <img class="row-thumb" src="dungeon_escape.png" alt="Dungeon Escape"
+           onerror="this.src='https://placehold.co/480x270/120f1c/f5c518?text=Dungeon+Escape'">
+      <span class="row-arrow">→</span>
+    </a>
+
+    <a href="projects/tempest.html" class="project-row fade-up" data-category="games">
+      <span class="row-num">06</span>
+      <div class="row-content">
+        <div class="row-tags">
+          <span class="row-tag">2D PLATFORMER</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">UNITY / C#</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">PHYSICS</span>
+        </div>
+        <h2 class="row-title">Tempest <span class="row-badge games">GAME</span></h2>
+        <p class="row-desc">2D platformer built around momentum. You don't stop unless you choose to.</p>
+      </div>
+      <img class="row-thumb" src="tempest.png" alt="Tempest"
+           onerror="this.src='https://placehold.co/480x270/120f1c/a78bfa?text=Tempest'">
+      <span class="row-arrow">→</span>
+    </a>
+
+    <a href="projects/babyblast.html" class="project-row fade-up" data-category="games">
+      <span class="row-num">07</span>
+      <div class="row-content">
+        <div class="row-tags">
+          <span class="row-tag">ARCADE</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">PHASER</span>
+          <span class="row-tag">·</span>
+          <span class="row-tag">PLAY IN BROWSER</span>
+        </div>
+        <h2 class="row-title">BabyBlast <span class="row-badge games">GAME</span></h2>
+        <p class="row-desc">Simpsons-inspired arcade cannon game. Playable right now in your browser.</p>
+      </div>
+      <img class="row-thumb" src="babyblast.png" alt="BabyBlast"
+           onerror="this.src='https://placehold.co/480x270/120f1c/f5c518?text=BabyBlast'">
+      <span class="row-arrow">→</span>
+    </a>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="about.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+<script src="main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.filter-btn');
+    const rows = document.querySelectorAll('.project-row');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        rows.forEach(row => {
+          if (filter === 'all' || row.dataset.category === filter) {
+            row.classList.remove('hidden');
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>

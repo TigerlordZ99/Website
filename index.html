@@ -1,343 +1,454 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madhav Ramakrishnan - Game Developer Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
-    <style>
-        body {
-            font-family: 'Press Start 2P', cursive;
-            overflow-x: hidden;
-            background-color: #1a1a2e;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-            cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAADNJREFUSEvtlEkKADAIAm3/v+2yPERIURIsPZUEB2jAQsAAAAASUVORK5CYII=') 12 0, auto;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madhav Ramakrishnan — Game Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- HERO ---- */
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 6rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
 
-        .section-header {
-            animation: fadeIn 1s ease-in-out;
-        }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 3rem 1.25rem 2rem; gap: 2.5rem; }
+      .hero-visual { justify-content: flex-start; }
+      .title-card { width: 100%; max-width: 340px; height: 300px; }
+    }
+    @media (max-width: 600px) {
+      .hero-visual { display: none; }
+      .hero-name { font-size: 2.4rem; }
+      .hero-tagline { font-size: 0.75rem; }
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { text-align: center; justify-content: center; }
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+    .hero-name {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+    }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .hero-name .line-gold {
+      color: var(--accent);
+      display: block;
+      text-shadow: 0 0 60px rgba(245,197,24,0.25);
+    }
 
-        .pixel-button {
-            border: 2px solid #fff;
-            padding: 0.75rem 1.5rem;
-            transition: all 0.2s ease;
-            box-shadow: inset 0 0 0 0 #fff;
-            color: #fff;
-        }
+    .hero-tagline {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+      line-height: 1.8;
+      max-width: 420px;
+    }
 
-        .pixel-button:hover {
-            box-shadow: inset 0 0 0 2px;
-            color: #e0e7ff;
-        }
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-        .pixel-button:active {
-            transform: translateY(2px);
-        }
+    /* ---- Hero Visual (animated pixel grid / title card) ---- */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .project-card {
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
+    .title-card {
+      width: 340px;
+      height: 420px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
 
-        .hidden-card {
-            opacity: 0;
-            transform: translateY(50px);
-        }
+    .title-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(91,138,245,0.08) 0%, transparent 60%),
+        linear-gradient(to bottom, transparent 40%, rgba(11,12,20,0.95) 100%);
+    }
 
-        #konami-code-secret {
-            transition: opacity 0.5s ease-in-out;
-        }
-    </style>
+    /* animated pixel art character placeholder */
+    .char-placeholder {
+      position: absolute;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 200px;
+      display: grid;
+      grid-template-columns: repeat(8,1fr);
+      grid-template-rows: repeat(13,1fr);
+      gap: 2px;
+      opacity: 0.6;
+      image-rendering: pixelated;
+    }
+
+    .px { background: var(--accent3); border-radius: 0; }
+    .px.g { background: var(--accent); }
+    .px.r { background: var(--accent2); }
+    .px.d { background: var(--bg2); }
+    .px.w { background: #e8eaf6; }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(-8px); }
+    }
+    .char-placeholder { animation: float 3s ease-in-out infinite; }
+
+    .title-card-label {
+      position: relative;
+      z-index: 1;
+    }
+
+    .title-card-label .pixel-text {
+      font-size: 0.5rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .title-card-label h2 {
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .title-card-label p {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* corner pixel decorations */
+    .title-card .px-corner {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+    }
+    .title-card .px-corner.tl { top: 0; left: 0; }
+    .title-card .px-corner.tr { top: 0; right: 0; }
+    .title-card .px-corner.bl { bottom: 0; left: 0; }
+    .title-card .px-corner.br { bottom: 0; right: 0; }
+
+    /* glow ring behind card */
+    .card-glow {
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(ellipse at center, rgba(91,138,245,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ---- Stats Row ---- */
+    .stats-row {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    @media (max-width: 700px) {
+      .stats-inner { grid-template-columns: repeat(2,1fr); padding: 1rem; }
+      .stat-item { padding: 0.8rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+      .stat-num { font-size: 1.8rem; }
+    }
+
+    .stat-item {
+      padding: 1rem 2rem;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ---- Projects Preview ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .projects-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    }
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-thumb {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .project-thumb:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      transition: opacity 0.4s;
+      filter: saturate(0.7);
+    }
+
+    .project-thumb:hover img {
+      opacity: 0.85;
+      filter: saturate(1);
+    }
+
+    .project-thumb-info {
+      position: absolute;
+      inset: 0;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(to top, rgba(11,12,20,0.92) 0%, transparent 60%);
+    }
+
+    .project-thumb-tag {
+      font-family: var(--pixel);
+      font-size: 0.38rem;
+      color: var(--accent3);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-thumb-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+
+    .project-thumb-arrow {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.2rem;
+      color: var(--accent);
+      opacity: 0;
+      transform: translate(-4px, 4px);
+      transition: all 0.2s;
+    }
+
+    .project-thumb:hover .project-thumb-arrow {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* ---- Scroll indicator ---- */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.4;
+    }
+    .scroll-hint span {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+    .scroll-arrow {
+      animation: bounce 1.5s ease-in-out infinite;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+  </style>
 </head>
+<body class="pixel-grid-bg">
 
-<body class="text-indigo-100 antialiased">
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Madhav Ramakrishnan</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About & Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">☰</button>
+</nav>
 
-    <div id="konami-code-secret"
-        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-300 text-black p-8 border-4 border-black text-center z-50">
-        <h2 class="text-2xl mb-4">Secret Found!</h2>
-        <p>+30 Lives</p>
+<div class="page-wrapper">
+
+  <!-- HERO -->
+  <section style="position:relative;">
+    <div class="hero" style="grid-template-columns:1fr;max-width:800px;">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Game Developer</div>
+        <h1 class="hero-name glitch">
+          Madhav<br>
+          <span class="line-gold">Ramakrishnan</span>
+        </h1>
+        <p class="hero-tagline">
+          I build games and interactive experiences — from VR runners to rhythm fighters.<br>
+          Based in Los Angeles. Open to full-time roles.
+        </p>
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-gold">My Work</a>
+          <a href="about.html" class="btn btn-outline">About Me</a>
+        </div>
+      </div>
     </div>
 
-    <header class="bg-black/50 backdrop-blur-sm sticky top-0 z-50 border-b-2 border-indigo-400">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="interactive-sound text-lg font-bold text-white uppercase">Madhav</a>
-            <div class="hidden md:flex space-x-8 text-sm">
-                <a href="#home"
-                    class="interactive-sound text-indigo-200 hover:text-yellow-300 transition duration-300">// Home</a>
-                <a href="#about"
-                    class="interactive-sound text-indigo-200 hover:text-yellow-300 transition duration-300">// About</a>
-                <a href="#projects"
-                    class="interactive-sound text-indigo-200 hover:text-yellow-300 transition duration-300">//
-                    Projects</a>
-            </div>
-            <button id="mobile-menu-button"
-                class="md:hidden p-2 rounded-md text-indigo-200 hover:bg-gray-800 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 bg-black/95">
-            <a href="#home" class="interactive-sound block text-indigo-200 hover:bg-gray-800 rounded-md p-2">// Home</a>
-            <a href="#about" class="interactive-sound block text-indigo-200 hover:bg-gray-800 rounded-md p-2">//
-                About</a>
-            <a href="#projects" class="interactive-sound block text-indigo-200 hover:bg-gray-800 rounded-md p-2">//
-                Projects</a>
+    <div class="scroll-hint">
+      <span>SCROLL</span>
+      <div class="scroll-arrow">▼</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS PREVIEW -->
+  <section class="section">
+    <div class="section-label">// MY WORK</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+      <h2 class="section-title fade-up">My<br><span style="color:var(--accent)">Work</span></h2>
+      <a href="projects.html" class="btn btn-ghost fade-up">View All →</a>
+    </div>
+    <div class="divider"></div>
+
+    <div class="projects-grid">
+
+      <a href="projects/ghostrunner.html" class="project-thumb fade-up">
+        <img src="ghostrunner.png" alt="Ghost Runner"
+             onerror="this.src='https://placehold.co/600x450/120f1c/f5c518?text=Ghost+Runner'">
+        <div class="project-thumb-info">
+          <span class="project-thumb-tag">REACT NATIVE · GPS · AR</span>
+          <span class="project-thumb-title">Ghost Runner</span>
         </div>
-    </header>
+        <div class="project-thumb-arrow">↗</div>
+      </a>
 
-    <main class="container mx-auto px-6 py-12 relative z-10">
-
-        <section id="home" class="min-h-[80vh] flex items-center justify-center text-center">
-            <div class="max-w-4xl">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight text-yellow-300 uppercase"
-                    style="text-shadow: 3px 3px 0px #be185d;">I'm Madhav Ramakrishnan
-                </h1>
-                <p class="mt-8 mx-auto max-w-2xl text-base md:text-lg text-indigo-200 leading-relaxed">An aspiring
-                    game developer based in Los Angeles. I'm currently in university learning to build video games.
-                </p>
-                <div class="mt-10 flex flex-wrap justify-center gap-4">
-                    <a href="#projects"
-                        class="interactive-sound pixel-button bg-pink-600 border-pink-400 hover:text-pink-200">My
-                        Work</a>
-                    <a href="#"
-                        class="interactive-sound pixel-button bg-cyan-600 border-cyan-400 hover:text-cyan-200">GitHub</a>
-                    <a href="#"
-                        class="interactive-sound pixel-button bg-blue-600 border-blue-400 hover:text-blue-200">LinkedIn</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="py-20">
-            <h2 class="section-header text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-300 uppercase"
-                style="text-shadow: 2px 2px 0px #be185d;">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center gap-12 bg-black/50 p-8 border-2 border-indigo-400">
-                <div class="md:w-1/3">
-                    <img src="me.png" alt="About Me"
-                        class="border-2 border-yellow-300">
-                </div>
-                <div class="md:w-2/3">
-                    <p class="text-sm leading-relaxed text-indigo-200 mb-4">
-                        Hello! I'm Madhav, an aspiring game developer with a keen interest in creating immersive gaming
-                        experiences. I love trying new tools and software to enhance my skills and bring my creative
-                        ideas to life. I am currently studying at the University of California, Santa Cruz where I am
-                        learning the fundamentals of game development and design, as well as studying other software
-                        engineering concepts.
-                    </p>
-                    <p class="text-sm leading-relaxed text-indigo-200 mb-6">
-                        I have experience in many software development tools and languages, including Unity, GitHub,
-                        Python, JavaScript, and C#. I'm currently also learning full stack web development as well as
-                        working with AI and Machine Learning tools.
-                    </p>
-                    <p class="text-sm leading-relaxed text-indigo-200 mb-8">
-                        Outside of programming, I enjoy playing video games, watching movies, and playing sports like tennis and baseball.
-                    </p>
-                    <h3 class="text-xl font-semibold mb-4 text-yellow-300">Skills</h3>
-                    <div class="flex flex-wrap gap-3 text-xs">
-                        <span class="bg-purple-900/50 text-purple-300 p-2 border border-purple-400">Python</span>
-                        <span class="bg-purple-900/50 text-purple-300 p-2 border border-purple-400">JavaScript</span>
-                        <span class="bg-purple-900/50 text-purple-300 p-2 border border-purple-400">Unity</span>
-                        <span class="bg-purple-900/50 text-purple-300 p-2 border border-purple-400">AI/ML</span>
-                        <span class="bg-purple-900/50 text-purple-300 p-2 border border-purple-400">UI/UX Design</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="py-20">
-            <h2 class="section-header text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-300 uppercase"
-                style="text-shadow: 2px 2px 0px #be185d;">Projects</h2>
-            
-            <div class="flex flex-wrap justify-center gap-8">
-                
-                <div class="project-card bg-black/50 border-2 border-indigo-400 p-1 w-full md:w-[45%] lg:w-[30%]">
-                    <div class="border-2 border-indigo-400">
-                        <img src="RamsJourney.png" alt="Ram's Journey Project Image" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a2e/eab308?text=Ram\'s+Journey';">
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold mb-2 text-yellow-300">Ram's Journey</h3>
-                            <p class="text-xs leading-relaxed text-indigo-200 mb-4">A dungeon crawler made in Unity
-                                where you shoot enemies and find keys.</p>
-                            <a href="https://youtu.be/UiGXoCnAYuw?si=qpQL44n0z3a_IDdw"
-                                class="interactive-sound text-cyan-300 hover:underline">View Project >></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card bg-black/50 border-2 border-indigo-400 p-1 w-full md:w-[45%] lg:w-[30%]">
-                    <div class="border-2 border-indigo-400">
-                        <img src="TigerHunt.png" alt="Tiger Hunt Project Image" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a2e/eab308?text=Tiger+Hunt';">
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold mb-2 text-yellow-300">Tiger Hunt</h3>
-                            <p class="text-xs leading-relaxed text-indigo-200 mb-4">A sidescroller made in Phaser. Play
-                                as a tiger attacking hunters.</p>
-                            <a href="https://tigerlordz99.github.io/Tiger-Hunt/"
-                                class="interactive-sound text-cyan-300 hover:underline">View Project >></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card bg-black/50 border-2 border-indigo-400 p-1 w-full md:w-[45%] lg:w-[30%]">
-                    <div class="border-2 border-indigo-400">
-                        <img src="BabyBlast.png" alt="Baby Blast Project Image" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a2e/eab308?text=Baby+Blast';">
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold mb-2 text-yellow-300">Baby Blast</h3>
-                            <p class="text-xs leading-relaxed text-indigo-200 mb-4">A Phaser game inspired by the Simpsons. Fire a cannon at babies.</p>
-                            <a href="https://tigerlordz99.github.io/BabyBlast/"
-                                class="interactive-sound text-cyan-300 hover:underline">View Project >></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card bg-black/50 border-2 border-indigo-400 p-1 w-full md:w-[45%] lg:w-[30%]">
-                    <div class="border-2 border-indigo-400">
-                        <img src="NewProject1.png" alt="Beat Brawler Project Image" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a2e/eab308?text=Beat+Brawler';">
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold mb-2 text-yellow-300">Beat Brawler</h3>
-                            <p class="text-xs leading-relaxed text-indigo-200 mb-4">A rhythm fighting game made in Unity. Time your attacks to the beat to defeat the AI.</p>
-                            <a href="#" class="interactive-sound text-cyan-300 hover:underline">Watch Video >></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card bg-black/50 border-2 border-indigo-400 p-1 w-full md:w-[45%] lg:w-[30%]">
-                    <div class="border-2 border-indigo-400">
-                        <img src="NewProject2.png" alt="Tempest Project Image" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a1a2e/eab308?text=Tempest';">
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold mb-2 text-yellow-300">Tempest</h3>
-                            <p class="text-xs leading-relaxed text-indigo-200 mb-4">A 2D physics platformer made in Unity. Use momentum and complex movement to clear obstacles.</p>
-                            <a href="#" class="interactive-sound text-cyan-300 hover:underline">Play Game >></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="text-indigo-200 text-center py-8 mt-12 text-sm">
-        <div class="flex justify-center space-x-6">
-            <a href="#"
-                class="interactive-sound text-indigo-200 hover:text-yellow-300 transition duration-300">GitHub</a>
-            <a href="#"
-                class="interactive-sound text-indigo-200 hover:text-yellow-300 transition duration-300">LinkedIn</a>
+      <a href="projects/cinerecs.html" class="project-thumb fade-up">
+        <img src="cinerecs.png" alt="CineRecs"
+             onerror="this.src='https://placehold.co/600x450/120f1c/a78bfa?text=CineRecs'">
+        <div class="project-thumb-info">
+          <span class="project-thumb-tag">NEXT.JS · GEMINI API</span>
+          <span class="project-thumb-title">CineRecs</span>
         </div>
-    </footer>
+        <div class="project-thumb-arrow">↗</div>
+      </a>
 
-    <script>
-        const cards = document.querySelectorAll('.project-card');
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('hidden-card');
-                } else {
-                    entry.target.classList.add('hidden-card');
-                }
-            });
-        }, { threshold: 0.15 });
+      <a href="projects/beatbrawler.html" class="project-thumb fade-up">
+        <img src="beatbrawler.png" alt="BeatBrawler"
+             onerror="this.src='https://placehold.co/600x450/120f1c/e0415a?text=BeatBrawler'">
+        <div class="project-thumb-info">
+          <span class="project-thumb-tag">RHYTHM · UNITY</span>
+          <span class="project-thumb-title">BeatBrawler</span>
+        </div>
+        <div class="project-thumb-arrow">↗</div>
+      </a>
 
-        cards.forEach(card => {
-            card.classList.add('hidden-card');
-            cardObserver.observe(card);
-        });
+      <a href="projects/vrunner.html" class="project-thumb fade-up">
+        <img src="vrunner.png" alt="VRunner"
+             onerror="this.src='https://placehold.co/600x450/120f1c/a78bfa?text=VRunner'">
+        <div class="project-thumb-info">
+          <span class="project-thumb-tag">VR · UNITY</span>
+          <span class="project-thumb-title">VRunner</span>
+        </div>
+        <div class="project-thumb-arrow">↗</div>
+      </a>
 
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+      <a href="projects/dungeon.html" class="project-thumb fade-up">
+        <img src="dungeon_escape.png" alt="Dungeon Escape"
+             onerror="this.src='https://placehold.co/600x450/120f1c/f5c518?text=Dungeon+Escape'">
+        <div class="project-thumb-info">
+          <span class="project-thumb-tag">ROGUELIKE · UNITY</span>
+          <span class="project-thumb-title">Dungeon Escape</span>
+        </div>
+        <div class="project-thumb-arrow">↗</div>
+      </a>
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      <!-- CTA card -->
+      <a href="projects.html" class="project-thumb fade-up" style="background:var(--bg2);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0.8rem;border-style:dashed;aspect-ratio:4/3;">
+        <span style="font-family:var(--pixel);font-size:0.55rem;color:var(--accent);text-align:center;">ALL<br>PROJECTS</span>
+        <span style="font-size:2rem;color:var(--muted);">→</span>
+      </a>
 
-        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
-        for (let link of mobileMenuLinks) {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        }
+    </div>
+  </section>
 
-        let audioEnabled = false;
-        const hoverSound = new Tone.Synth({
-            oscillator: { type: 'square' },
-            envelope: { attack: 0.01, decay: 0.1, sustain: 0.2, release: 0.1 },
-        }).toDestination();
-        hoverSound.volume.value = -15;
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="about.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>
+  </footer>
 
-        const clickSound = new Tone.Synth({
-            oscillator: { type: 'triangle' },
-            envelope: { attack: 0.01, decay: 0.2, sustain: 0.1, release: 0.2 },
-        }).toDestination();
-        clickSound.volume.value = -10;
+</div>
 
-        function playHoverSound() {
-            if (!audioEnabled) return;
-            hoverSound.triggerAttackRelease('C5', '16n');
-        }
-
-        function playClickSound() {
-            if (!audioEnabled) return;
-            clickSound.triggerAttackRelease('G5', '8n');
-        }
-
-        document.querySelectorAll('.interactive-sound').forEach(el => {
-            el.addEventListener('mouseenter', playHoverSound);
-            el.addEventListener('click', playClickSound);
-        });
-
-        document.body.addEventListener('click', () => {
-            if (!audioEnabled) {
-                Tone.start();
-                audioEnabled = true;
-            }
-        }, { once: true });
-
-
-        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        let konamiIndex = 0;
-        document.addEventListener('keydown', (e) => {
-            if (e.key.toLowerCase() === konamiCode[konamiIndex]) {
-                konamiIndex++;
-                if (konamiIndex === konamiCode.length) {
-                    konamiIndex = 0;
-                    const secret = document.getElementById('konami-code-secret');
-                    secret.classList.remove('hidden');
-                    playClickSound();
-                    setTimeout(() => {
-                        secret.classList.add('hidden');
-                    }, 3000);
-                }
-            } else {
-                konamiIndex = 0;
-            }
-        });
-
-    </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+<script src="main.js"></script>
 </body>
-
 </html>

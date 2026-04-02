@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BabyBlast — Madhav Ramakrishnan</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../project-page.css">
+</head>
+<body class="pixel-grid-bg">
+
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Madhav Ramakrishnan</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../projects.html" class="active">Projects</a></li>
+    <li><a href="../about.html">About & Contact</a></li>
+  </ul>
+  <button class="nav-hamburger">☰</button>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="project-hero">
+    <div class="project-hero-meta">
+      <a href="../projects.html" class="back-link">← All Projects</a>
+      <h1 class="project-hero-title glitch" style="color:var(--accent)">Baby<br>Blast</h1>
+      <div class="project-subtitle">Arcade · Phaser · Play in Browser</div>
+      <p class="project-description">
+        A Simpsons-inspired arcade game built in Phaser 3. You aim and fire a cannon at moving targets across escalating levels. It's small and silly, but it's fully playable in the browser right now — no install, no setup.
+      </p>
+      <div class="project-links">
+        <a href="https://tigerlordz99.github.io/BabyBlast/" target="_blank" class="btn btn-gold">▶ Play Now</a>
+        <a href="https://github.com/tigerlordz99/BabyBlast" target="_blank" class="btn btn-ghost">GitHub</a>
+      </div>
+      <div class="project-details-grid">
+        <div class="detail-cell">
+          <div class="detail-label">ENGINE</div>
+          <div class="detail-value">Phaser 3 / JS</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-label">PLATFORM</div>
+          <div class="detail-value">Web Browser</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-label">GENRE</div>
+          <div class="detail-value">Arcade / Score Attack</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-media fade-up">
+      <img class="main-screenshot" src="../babyblast.png" alt="BabyBlast"
+           onerror="this.src='https://placehold.co/800x450/111220/f5c518?text=BabyBlast'">
+      <p class="screenshot-caption">// CANNON ARCADE ACTION</p>
+    </div>
+  </div>
+
+  <section class="prose-section">
+    <h2 class="section-title fade-up">Technical <span style="color:var(--accent)">Breakdown</span></h2>
+    <div class="divider"></div>
+    <div class="prose-body fade-up">
+      <ul>
+        <li><strong style="color:var(--text)">Cannon Trajectory —</strong> Matter.js handles arc physics, bounces, and collisions. Getting the shot prediction to feel satisfying without being too easy was most of the tuning work.</li>
+        <li><strong style="color:var(--text)">Difficulty Scaling —</strong> Targets move faster and patterns get more complex as you progress. Local high score tracking gives you something to chase each run.</li>
+        <li><strong style="color:var(--text)">Deployed on GitHub Pages —</strong> Fully browser-based, no install needed. Works on desktop and mobile — you can play it right now from the link above.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="project-nav">
+    <a href="tempest.html" class="project-nav-link fade-up">
+      <span class="nav-link-label">← PREV PROJECT</span>
+      <div class="nav-link-title">Tempest</div>
+    </a>
+    <div></div>
+  </div>
+    </a>
+    <div></div><!-- no next -->
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="../about.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>
+  </footer>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+<script src="../main.js"></script>
+</body>
+</html>
