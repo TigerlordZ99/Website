@@ -164,12 +164,12 @@
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">Madhav Ramakrishnan</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-nav">
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
     <li><a href="about.html">About & Contact</a></li>
   </ul>
-  <button class="nav-hamburger">☰</button>
+  <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
 </nav>
 
 <div class="page-wrapper">
@@ -179,7 +179,7 @@
     <h1 class="section-title fade-up">My Work</h1>
     <div class="divider"></div>
     <p style="font-family:var(--mono);font-size:0.8rem;color:var(--muted);max-width:520px;" class="fade-up">
-      Games, apps, and everything in between. Click any project for the full breakdown.
+      Games, apps, and everything in between. Click any project for the project details.
     </p>
   </div>
 
@@ -197,15 +197,14 @@
         <div class="row-tags">
           <span class="row-tag">REACT NATIVE</span>
           <span class="row-tag">·</span>
-          <span class="row-tag">GPS / AR</span>
+          <span class="row-tag">GPS</span>
           <span class="row-tag">·</span>
           <span class="row-tag">CRUZHACKS 2026</span>
         </div>
         <h2 class="row-title">Ghost Runner <span class="row-badge apps">APP</span></h2>
-        <p class="row-desc">AR fitness app that paces you in real time against a GPS-tracked digital ghost. Won "Wildest Idea" at CruzHacks 2026 out of 89 teams.</p>
+        <p class="row-desc">A running app built with React Native and Expo. Record a GPS route, then race against a previous run with a ghost comparison and audio cues.</p>
       </div>
-      <img class="row-thumb" src="ghostrunner.png" alt="Ghost Runner"
-           onerror="this.src='https://placehold.co/480x270/120f1c/f5c518?text=Ghost+Runner'">
+      <img class="row-thumb" src="thumbnails/GhostRunner.png" alt="" loading="lazy" decoding="async">
       <span class="row-arrow">→</span>
     </a>
 
@@ -220,10 +219,9 @@
           <span class="row-tag">FULL STACK</span>
         </div>
         <h2 class="row-title">CineRecs <span class="row-badge apps">APP</span></h2>
-        <p class="row-desc">Movie recommendation engine powered by Gemini. Import your Letterboxd history and get suggestions that account for what you've already seen.</p>
+        <p class="row-desc">A movie recommendation app built with Next.js and Gemini. Choose genres, an era, and a mood, or upload a Letterboxd export ZIP to personalize recommendations and filter your watchlist. TMDB supplies movie information and posters.</p>
       </div>
-      <img class="row-thumb" src="cinerecs.png" alt="CineRecs"
-           onerror="this.src='https://placehold.co/480x270/120f1c/a78bfa?text=CineRecs'">
+      <img class="row-thumb" src="thumbnails/CineRecs.png" alt="" loading="lazy" decoding="async">
       <span class="row-arrow">→</span>
     </a>
 
@@ -235,13 +233,12 @@
           <span class="row-tag">·</span>
           <span class="row-tag">UNITY / C#</span>
           <span class="row-tag">·</span>
-          <span class="row-tag">AI</span>
+          <span class="row-tag">COMBAT</span>
         </div>
         <h2 class="row-title">BeatBrawler <span class="row-badge games">GAME</span></h2>
-        <p class="row-desc">Fighting game where timing your attacks to the beat actually matters. Custom HFSM/Behavior Tree AI with Python-driven spectral analysis.</p>
+        <p class="row-desc">A rhythm fighting game built in Unity. Watch the gameplay video for a look at the project.</p>
       </div>
-      <img class="row-thumb" src="beatbrawler.png" alt="BeatBrawler"
-           onerror="this.src='https://placehold.co/480x270/120f1c/e0415a?text=BeatBrawler'">
+      <img class="row-thumb" src="thumbnails/BeatBrawler.png" alt="" loading="lazy" decoding="async">
       <span class="row-arrow">→</span>
     </a>
 
@@ -253,13 +250,12 @@
           <span class="row-tag">·</span>
           <span class="row-tag">UNITY / C#</span>
           <span class="row-tag">·</span>
-          <span class="row-tag">SPATIAL AUDIO</span>
+          <span class="row-tag">VR RUNNER</span>
         </div>
         <h2 class="row-title">VRunner <span class="row-badge games">GAME</span></h2>
-        <p class="row-desc">VR runner built for HMDs. Custom locomotion system designed to keep speed high without causing motion sickness.</p>
+        <p class="row-desc">A VR runner project built in Unity. The trailer and vertical slice show the game, and the project repository is linked below.</p>
       </div>
-      <img class="row-thumb" src="vrunner.png" alt="VRunner"
-           onerror="this.src='https://placehold.co/480x270/120f1c/a78bfa?text=VRunner'">
+      <img class="row-thumb" src="thumbnails/VRunner.png" alt="" loading="lazy" decoding="async">
       <span class="row-arrow">→</span>
     </a>
 
@@ -274,10 +270,9 @@
           <span class="row-tag">PROCEDURAL GEN</span>
         </div>
         <h2 class="row-title">Dungeon Escape <span class="row-badge games">GAME</span></h2>
-        <p class="row-desc">Roguelike with procedurally generated maps, a modular weapon system, and custom A* pathfinding.</p>
+        <p class="row-desc">A top-down Unity dungeon crawler developed with Anish Bansal. Explore a generated dungeon, collect color-coded keys to open matching doors, and find the Master Key to escape while avoiding enemies.</p>
       </div>
-      <img class="row-thumb" src="dungeon_escape.png" alt="Dungeon Escape"
-           onerror="this.src='https://placehold.co/480x270/120f1c/f5c518?text=Dungeon+Escape'">
+      <img class="row-thumb" src="thumbnails/DungeonEscape.png" alt="" loading="lazy" decoding="async">
       <span class="row-arrow">→</span>
     </a>
 
@@ -289,13 +284,12 @@
           <span class="row-tag">·</span>
           <span class="row-tag">UNITY / C#</span>
           <span class="row-tag">·</span>
-          <span class="row-tag">PHYSICS</span>
+          <span class="row-tag">PROTOTYPE</span>
         </div>
         <h2 class="row-title">Tempest <span class="row-badge games">GAME</span></h2>
-        <p class="row-desc">2D platformer built around momentum. You don't stop unless you choose to.</p>
+        <p class="row-desc">A Unity survival platformer prototype built around weather hazards. Move, double-jump, and dash past lightning and tornadoes to reach the objective before running out of health.</p>
       </div>
-      <img class="row-thumb" src="tempest.png" alt="Tempest"
-           onerror="this.src='https://placehold.co/480x270/120f1c/a78bfa?text=Tempest'">
+      <img class="row-thumb" src="thumbnails/Tempest.png" alt="" loading="lazy" decoding="async">
       <span class="row-arrow">→</span>
     </a>
 
@@ -310,10 +304,9 @@
           <span class="row-tag">PLAY IN BROWSER</span>
         </div>
         <h2 class="row-title">BabyBlast <span class="row-badge games">GAME</span></h2>
-        <p class="row-desc">Simpsons-inspired arcade cannon game. Playable right now in your browser.</p>
+        <p class="row-desc">A Phaser arcade game where you aim a cannon and fire at moving targets to score points. You start with three lives, and targets spawn more frequently after 30 seconds. Play in a desktop browser using the keyboard.</p>
       </div>
-      <img class="row-thumb" src="babyblast.png" alt="BabyBlast"
-           onerror="this.src='https://placehold.co/480x270/120f1c/f5c518?text=BabyBlast'">
+      <img class="row-thumb" src="thumbnails/BabyBlast.png" style="object-position: center 75%;" alt="" loading="lazy" decoding="async">
       <span class="row-arrow">→</span>
     </a>
 
@@ -321,8 +314,8 @@
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="about.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>

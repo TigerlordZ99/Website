@@ -11,12 +11,12 @@
 
 <nav class="nav">
   <a href="../index.html" class="nav-logo">Madhav Ramakrishnan</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-nav">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../projects.html" class="active">Projects</a></li>
     <li><a href="../about.html">About & Contact</a></li>
   </ul>
-  <button class="nav-hamburger">☰</button>
+  <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
 </nav>
 
 <div class="page-wrapper">
@@ -27,12 +27,12 @@
       <h1 class="project-hero-title glitch" style="color:var(--accent)">Ghost<br>Runner</h1>
       <div class="project-subtitle">React Native (Expo) · GPS · Spatial Audio</div>
       <p class="project-description">
-        An AR fitness app that paces you in real time against a "Digital Ghost" — a GPS recording of a previous run. Built in React Native with Expo, it uses geospatial logic and a Kalman Filter to smooth noisy GPS data so the ghost position stays accurate even when your phone signal drops. Spatial audio gives you real-time feedback on whether you're ahead or behind. Won "Wildest Idea" at CruzHacks 2026 out of 89 teams.
+        A running app built with React Native and Expo. Record a GPS route, then race against a previous run with a ghost comparison and audio cues.
       </p>
       <div class="project-links">
-        <a href="https://youtu.be/7UMvIjduhEA" target="_blank" class="btn btn-gold">▶ Watch Demo</a>
-        <a href="https://devpost.com/software/ghost-runner-imy4e1" target="_blank" class="btn btn-outline">Devpost</a>
-        <a href="https://github.com/raymonsadhra/Ghost-Runner.git" target="_blank" class="btn btn-ghost">GitHub</a>
+        <a href="https://youtu.be/7UMvIjduhEA" target="_blank" rel="noopener noreferrer" class="btn btn-gold">▶ Watch Demo</a>
+        <a href="https://devpost.com/software/ghost-runner-imy4e1" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Devpost</a>
+        <a href="https://github.com/raymonsadhra/Ghost-Runner.git" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
       </div>
       <div class="project-details-grid">
         <div class="detail-cell">
@@ -47,37 +47,11 @@
     </div>
 
     <div class="project-media fade-up">
-      <img class="main-screenshot" src="../ghostrunner.png" alt="Ghost Runner"
-           onerror="this.src='https://placehold.co/800x450/120f1c/f5c518?text=Ghost+Runner'">
-      <p class="screenshot-caption">// AR FITNESS — REAL-TIME GPS PACING</p>
+      <img class="main-screenshot" src="../thumbnails/GhostRunner.png" alt="GhostRunner project preview" decoding="async">
+
     </div>
   </div>
 
-  <!-- Contributions -->
-  <section class="prose-section">
-    <div class="section-label">// HACKATHON PROJECT</div>
-    <h2 class="section-title fade-up">My <span style="color:var(--accent)">Contributions</span></h2>
-    <div class="divider"></div>
-    <div class="prose-body fade-up">
-      <ul>
-        <li>Contribution one — describe what you built or owned here.</li>
-        <li>Contribution two — describe what you built or owned here.</li>
-        <li>Contribution three — describe what you built or owned here.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="prose-section">
-    <h2 class="section-title fade-up">Technical <span style="color:var(--accent)">Breakdown</span></h2>
-    <div class="divider"></div>
-    <div class="prose-body fade-up">
-      <ul>
-        <li><strong style="color:var(--text)">Kalman Filter —</strong> Raw GPS data is noisy — especially at running speeds. Implemented a Kalman Filter to smooth out positional jitter and keep the ghost position accurate in real time without introducing lag.</li>
-        <li><strong style="color:var(--text)">Spatial Audio Feedback —</strong> Low-latency spatial audio tells you whether you're ahead or behind the ghost without looking at your phone. The idea was to keep your eyes on the road, not the screen.</li>
-        <li><strong style="color:var(--text)">React Native + Expo —</strong> Built cross-platform in React Native with Expo so it runs on both iOS and Android. Geospatial logic handles coordinate math, distance calculations, and ghost playback from stored GPS traces.</li>
-      </ul>
-    </div>
-  </section>
 
   <div class="project-nav">
     <div></div>
@@ -86,12 +60,11 @@
       <div class="nav-link-title">CineRecs</div>
     </a>
   </div>
-  </div>
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="../about.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>

@@ -12,12 +12,12 @@
 
 <nav class="nav">
   <a href="../index.html" class="nav-logo">Madhav Ramakrishnan</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-nav">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../projects.html" class="active">Projects</a></li>
     <li><a href="../about.html">About & Contact</a></li>
   </ul>
-  <button class="nav-hamburger">☰</button>
+  <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
 </nav>
 
 <div class="page-wrapper">
@@ -28,11 +28,11 @@
       <h1 class="project-hero-title glitch" style="color:var(--accent)">Baby<br>Blast</h1>
       <div class="project-subtitle">Arcade · Phaser · Play in Browser</div>
       <p class="project-description">
-        A Simpsons-inspired arcade game built in Phaser 3. You aim and fire a cannon at moving targets across escalating levels. It's small and silly, but it's fully playable in the browser right now — no install, no setup.
+        A Phaser arcade game where you aim a cannon and fire at moving targets to score points. You start with three lives, and targets spawn more frequently after 30 seconds. Play in a desktop browser using the keyboard.
       </p>
       <div class="project-links">
-        <a href="https://tigerlordz99.github.io/BabyBlast/" target="_blank" class="btn btn-gold">▶ Play Now</a>
-        <a href="https://github.com/tigerlordz99/BabyBlast" target="_blank" class="btn btn-ghost">GitHub</a>
+        <a href="https://tigerlordz99.github.io/BabyBlast/" target="_blank" rel="noopener noreferrer" class="btn btn-gold">▶ Play Now</a>
+        <a href="https://github.com/tigerlordz99/BabyBlast" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
       </div>
       <div class="project-details-grid">
         <div class="detail-cell">
@@ -51,39 +51,23 @@
     </div>
 
     <div class="project-media fade-up">
-      <img class="main-screenshot" src="../babyblast.png" alt="BabyBlast"
-           onerror="this.src='https://placehold.co/800x450/111220/f5c518?text=BabyBlast'">
-      <p class="screenshot-caption">// CANNON ARCADE ACTION</p>
+      <img class="main-screenshot" src="../thumbnails/BabyBlast.png" style="object-position: center 75%;" alt="BabyBlast project preview" decoding="async">
+
     </div>
   </div>
 
-  <section class="prose-section">
-    <h2 class="section-title fade-up">Technical <span style="color:var(--accent)">Breakdown</span></h2>
-    <div class="divider"></div>
-    <div class="prose-body fade-up">
-      <ul>
-        <li><strong style="color:var(--text)">Cannon Trajectory —</strong> Matter.js handles arc physics, bounces, and collisions. Getting the shot prediction to feel satisfying without being too easy was most of the tuning work.</li>
-        <li><strong style="color:var(--text)">Difficulty Scaling —</strong> Targets move faster and patterns get more complex as you progress. Local high score tracking gives you something to chase each run.</li>
-        <li><strong style="color:var(--text)">Deployed on GitHub Pages —</strong> Fully browser-based, no install needed. Works on desktop and mobile — you can play it right now from the link above.</li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="project-nav">
+<div class="project-nav">
     <a href="tempest.html" class="project-nav-link fade-up">
       <span class="nav-link-label">← PREV PROJECT</span>
       <div class="nav-link-title">Tempest</div>
     </a>
     <div></div>
   </div>
-    </a>
-    <div></div><!-- no next -->
-  </div>
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="../about.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>

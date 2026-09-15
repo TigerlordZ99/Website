@@ -11,12 +11,12 @@
 
 <nav class="nav">
   <a href="../index.html" class="nav-logo">Madhav Ramakrishnan</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-nav">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../projects.html" class="active">Projects</a></li>
     <li><a href="../about.html">About & Contact</a></li>
   </ul>
-  <button class="nav-hamburger">☰</button>
+  <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
 </nav>
 
 <div class="page-wrapper">
@@ -27,11 +27,11 @@
       <h1 class="project-hero-title glitch" style="color:var(--accent3)">CineRecs</h1>
       <div class="project-subtitle">Next.js 14 · Gemini API · Tailwind CSS</div>
       <p class="project-description">
-        A movie recommendation engine that actually knows what you've already seen. Connect your Letterboxd account, export your watch history, and the app cross-references Gemini's suggestions against your existing watchlist so you don't get recommended films you've already rated. Built with Next.js 14, the Gemini API, and real-time poster/metadata from TMDB.
+        A movie recommendation app built with Next.js and Gemini. Choose genres, an era, and a mood, or upload a Letterboxd export ZIP to personalize recommendations and filter your watchlist. TMDB supplies movie information and posters.
       </p>
       <div class="project-links">
-        <a href="https://cinerecs.vercel.app/" target="_blank" class="btn btn-gold">↗ Live Site</a>
-        <a href="https://github.com/TigerlordZ99/CineRecs.git" target="_blank" class="btn btn-ghost">GitHub</a>
+        <a href="https://cinerecs.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-gold">↗ Live Site</a>
+        <a href="https://github.com/TigerlordZ99/CineRecs.git" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
       </div>
       <div class="project-details-grid">
         <div class="detail-cell">
@@ -46,25 +46,12 @@
     </div>
 
     <div class="project-media fade-up">
-      <img class="main-screenshot" src="../cinerecs.png" alt="CineRecs"
-           onerror="this.src='https://placehold.co/800x450/120f1c/a78bfa?text=CineRecs'">
-      <p class="screenshot-caption">// PERSONALIZED MOVIE RECOMMENDATIONS</p>
+      <img class="main-screenshot" src="../thumbnails/CineRecs.png" alt="CineRecs project preview" decoding="async">
+
     </div>
   </div>
 
-  <section class="prose-section">
-    <h2 class="section-title fade-up">Technical <span style="color:var(--accent)">Breakdown</span></h2>
-    <div class="divider"></div>
-    <div class="prose-body fade-up">
-      <ul>
-        <li><strong style="color:var(--text)">Gemini-Powered Recs —</strong> User-defined parameters — genres, mood, era — get passed to the Gemini API to generate a tailored recommendation list. Prompt engineering handles edge cases like obscure preferences and conflicting filters.</li>
-        <li><strong style="color:var(--text)">Letterboxd Import Pipeline —</strong> Users upload their Letterboxd CSV export. JSZip parses it client-side, and custom filtering logic removes any recommended films that already appear in the user's watch history or watchlist.</li>
-        <li><strong style="color:var(--text)">Live Metadata & Posters —</strong> Every recommendation pulls real-time poster art and metadata from the TMDB API. Framer Motion handles the transitions — the goal was for results to feel like browsing a real streaming service, not a list.</li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="project-nav">
+<div class="project-nav">
     <a href="ghostrunner.html" class="project-nav-link fade-up">
       <span class="nav-link-label">← PREV PROJECT</span>
       <div class="nav-link-title">Ghost Runner</div>
@@ -77,8 +64,8 @@
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="../about.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>

@@ -12,12 +12,12 @@
 
 <nav class="nav">
   <a href="../index.html" class="nav-logo">Madhav Ramakrishnan</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-nav">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../projects.html" class="active">Projects</a></li>
     <li><a href="../about.html">About & Contact</a></li>
   </ul>
-  <button class="nav-hamburger">☰</button>
+  <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
 </nav>
 
 <div class="page-wrapper">
@@ -29,22 +29,21 @@
       <h1 class="project-hero-title glitch">VRunner</h1>
       <div class="project-subtitle">VR Runner · Unity / C#</div>
       <p class="project-description">
-        A VR runner built for head-mounted displays. The main challenge was making fast movement feel good in VR without causing discomfort — the whole movement system was built around that. Spatial audio reacts to speed and environment, and physics interactions make obstacles feel tangible rather than just visual.
+        A VR runner project built in Unity. The trailer and vertical slice show the game, and the project repository is linked below.
       </p>
       <div class="project-links">
-        <a href="https://drive.google.com/drive/folders/your-link" target="_blank" class="btn btn-gold">↓ Download (Drive)</a>
-        <a href="https://youtu.be/1hPUJbXHejc?si=d0datCCl-9575wcm" target="_blank" class="btn btn-outline">▶ Trailer</a>
-        <a href="https://youtu.be/HevVW1rCLWY" target="_blank" class="btn btn-outline">▶ Vertical Slice</a>
-        <a href="https://github.com/carlosnuno1/VRunner.git" target="_blank" class="btn btn-ghost">GitHub</a>
+        <a href="https://youtu.be/1hPUJbXHejc?si=d0datCCl-9575wcm" target="_blank" rel="noopener noreferrer" class="btn btn-outline">▶ Trailer</a>
+        <a href="https://youtu.be/HevVW1rCLWY" target="_blank" rel="noopener noreferrer" class="btn btn-outline">▶ Vertical Slice</a>
+        <a href="https://github.com/carlosnuno1/VRunner.git" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
       </div>
       <div class="project-details-grid">
         <div class="detail-cell">
           <div class="detail-label">ENGINE</div>
-          <div class="detail-value">Unity 2022 / C#</div>
+          <div class="detail-value">Unity / C#</div>
         </div>
         <div class="detail-cell">
           <div class="detail-label">PLATFORM</div>
-          <div class="detail-value">VR (Meta Quest)</div>
+          <div class="detail-value">VR</div>
         </div>
         <div class="detail-cell">
           <div class="detail-label">GENRE</div>
@@ -55,40 +54,11 @@
 
     <!-- RIGHT: Media -->
     <div class="project-media fade-up">
-      <img class="main-screenshot" src="../vrunner.png" alt="VRunner screenshot"
-           onerror="this.src='https://placehold.co/800x450/111220/5b8af5?text=VRunner'">
-      <p class="screenshot-caption">// IN-GAME SCREENSHOT</p>
+      <img class="main-screenshot" src="../thumbnails/VRunner.png" alt="VRunner project preview" decoding="async">
+
     </div>
   </div>
-
-  <!-- Contributions -->
-  <section class="prose-section">
-    <div class="section-label">// GROUP PROJECT</div>
-    <h2 class="section-title fade-up">My <span style="color:var(--accent)">Contributions</span></h2>
-    <div class="divider"></div>
-    <div class="prose-body fade-up">
-      <ul>
-        <li>Contribution one — describe what you built or owned here.</li>
-        <li>Contribution two — describe what you built or owned here.</li>
-        <li>Contribution three — describe what you built or owned here.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Technical Breakdown -->
-  <section class="prose-section">
-    <h2 class="section-title fade-up">Technical <span style="color:var(--accent)">Breakdown</span></h2>
-    <div class="divider"></div>
-    <div class="prose-body fade-up">
-      <ul>
-        <li><strong style="color:var(--text)">VR Locomotion —</strong> Built a custom movement system from scratch to keep speed high without causing motion sickness — involved a lot of camera decoupling and tweaking physics response per frame.</li>
-        <li><strong style="color:var(--text)">Spatial Audio —</strong> 3D positional audio that changes based on player speed and surroundings. Getting this to feel right in VR took careful tuning — too much and it's overwhelming, too little and it's flat.</li>
-        <li><strong style="color:var(--text)">Performance for HMDs —</strong> Hitting 90fps on standalone VR hardware meant being aggressive with draw call batching, LOD, and async asset loading. VR doesn't forgive frame drops the way flat games do.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Prev/Next nav -->
+<!-- Prev/Next nav -->
   <div class="project-nav">
     <a href="beatbrawler.html" class="project-nav-link fade-up">
       <span class="nav-link-label">← PREV PROJECT</span>
@@ -99,12 +69,11 @@
       <div class="nav-link-title">Dungeon Escape</div>
     </a>
   </div>
-  </div>
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="../about.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>

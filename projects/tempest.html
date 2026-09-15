@@ -12,12 +12,12 @@
 
 <nav class="nav">
   <a href="../index.html" class="nav-logo">Madhav Ramakrishnan</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-nav">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../projects.html" class="active">Projects</a></li>
     <li><a href="../about.html">About & Contact</a></li>
   </ul>
-  <button class="nav-hamburger">☰</button>
+  <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
 </nav>
 
 <div class="page-wrapper">
@@ -28,10 +28,11 @@
       <h1 class="project-hero-title glitch" style="color:var(--accent3)">Tempest</h1>
       <div class="project-subtitle">2D Platformer · Unity / C#</div>
       <p class="project-description">
-        A 2D platformer built around momentum — you don't stop unless you choose to. The character controller uses raycasting and a custom physics system to handle state transitions cleanly, so wall slides, ledge grabs, and mid-air direction changes all feel consistent. Levels are designed to teach the movement system before putting it under pressure.
+        A Unity survival platformer prototype built around weather hazards. Move, double-jump, and dash past lightning and tornadoes to reach the objective before running out of health.
       </p>
       <div class="project-links">
-        <a href="https://github.com/tigerlordz99" target="_blank" class="btn btn-gold">GitHub</a>
+        <a href="https://tigerlordz99.github.io/Tempest/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Play in Browser</a>
+        <a href="https://github.com/TigerlordZ99/Tempest" target="_blank" rel="noopener noreferrer" class="btn btn-gold">GitHub</a>
       </div>
       <div class="project-details-grid">
         <div class="detail-cell">
@@ -40,35 +41,22 @@
         </div>
         <div class="detail-cell">
           <div class="detail-label">PLATFORM</div>
-          <div class="detail-value">PC (Windows)</div>
+          <div class="detail-value">Web Browser</div>
         </div>
         <div class="detail-cell">
           <div class="detail-label">GENRE</div>
-          <div class="detail-value">Physics Platformer</div>
+          <div class="detail-value">Survival Platformer Prototype</div>
         </div>
       </div>
     </div>
 
     <div class="project-media fade-up">
-      <img class="main-screenshot" src="../tempest.png" alt="Tempest"
-           onerror="this.src='https://placehold.co/800x450/111220/5b8af5?text=Tempest'">
-      <p class="screenshot-caption">// MOMENTUM-BASED PLATFORMING</p>
+      <img class="main-screenshot" src="../thumbnails/Tempest.png" alt="Tempest project preview" decoding="async">
+
     </div>
   </div>
 
-  <section class="prose-section">
-    <h2 class="section-title fade-up">Technical <span style="color:var(--accent)">Breakdown</span></h2>
-    <div class="divider"></div>
-    <div class="prose-body fade-up">
-      <ul>
-        <li><strong style="color:var(--text)">Momentum Controller —</strong> Custom character controller built around velocity preservation. Stopping is an active choice — the player carries speed through jumps, wall slides, and direction changes.</li>
-        <li><strong style="color:var(--text)">Level Structure —</strong> Levels introduce one mechanic at a time in a low-stakes context, then test it for real a few screens later. It's a pretty classic structure but it works well for movement games.</li>
-        <li><strong style="color:var(--text)">Dynamic Obstacles —</strong> Raycasting drives a flexible obstacle system — moving platforms, pressure triggers, and interactive objects all use the same underlying logic to keep the codebase clean.</li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="project-nav">
+<div class="project-nav">
     <a href="dungeon.html" class="project-nav-link fade-up">
       <span class="nav-link-label">← PREV PROJECT</span>
       <div class="nav-link-title">Dungeon Escape</div>
@@ -78,12 +66,11 @@
       <div class="nav-link-title">BabyBlast</div>
     </a>
   </div>
-  </div>
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="../about.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>

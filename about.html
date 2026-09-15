@@ -320,12 +320,12 @@
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">Madhav Ramakrishnan</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-nav">
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="about.html" class="active">About & Contact</a></li>
   </ul>
-  <button class="nav-hamburger">☰</button>
+  <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
 </nav>
 
 <div class="page-wrapper">
@@ -335,12 +335,12 @@
     <div class="fade-up">
       <div class="hero-eyebrow">About Me</div>
       <h1 class="about-name">Madhav<br><span style="color:var(--accent)">Ramakrishnan</span></h1>
-      <div class="about-role">Game Developer · Unity · React · Python</div>
+      <div class="about-role">Game Developer &amp; Software Engineer</div>
       <p class="about-bio">
-        I'm a game developer based in Los Angeles. I graduated from UC Santa Cruz with a degree in Computer Science: Game Design, and I've spent the last few years building games across Unity, Phaser, and React Native — from VR runners to rhythm fighters to AR fitness apps.
+        I'm a game developer and software engineer based in Los Angeles, with a degree in Computer Science: Game Design from UC Santa Cruz. I build games in Unity and Phaser, and web and mobile applications with React, Next.js, and React Native.
       </p>
       <p class="about-bio">
-        I care about the feel of things — how a jump lands, how a beat syncs, how a system teaches itself to the player. Outside of games I've also done research work in procedural generation and shipped a couple of web apps.
+        My work spans gameplay programming, procedural generation, and application development. I enjoy building the systems behind a project, whether that means implementing game mechanics, writing Python tools to generate worlds, or connecting an app to the data it needs.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;">
         <span class="tag">Unity / C#</span>
@@ -349,16 +349,14 @@
         <span class="tag">Procedural Gen</span>
       </div>
       <div style="margin-top:1.5rem;display:flex;gap:0.8rem;flex-wrap:wrap;">
-        <a href="https://drive.google.com/your-resume-link" target="_blank" class="btn btn-gold">↓ Resume</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
       </div>
     </div>
 
     <div class="about-image-wrap fade-up">
-      <img class="profile-img" src="me.png" alt="Madhav Ramakrishnan"
-           onerror="this.src='https://placehold.co/360x480/1a1528/a78bfa?text=Madhav+R.'">
+      <img class="profile-img" src="me.png" alt="Madhav Ramakrishnan">
       <div class="img-deco"></div>
-      <div class="img-label">// MADHAV RAMAKRISHNAN — GAME DEVELOPER</div>
+      <div class="img-label">// MADHAV RAMAKRISHNAN — GAME DEVELOPER &amp; SOFTWARE ENGINEER</div>
     </div>
   </div>
 
@@ -441,25 +439,18 @@
           Open to full-time roles in game development and software engineering. If you're working on something interesting or want to talk, reach out.
         </p>
         <div class="contact-links-list">
-          <a href="https://github.com/tigerlordz99" target="_blank" class="contact-link-row">
+          <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer" class="contact-link-row">
             <div class="contact-link-icon">GITHUB</div>
             <div>
               <div class="contact-link-label">github.com/tigerlordz99</div>
               <div class="contact-link-sub">Projects & source code</div>
             </div>
           </a>
-          <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" class="contact-link-row">
+          <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer" class="contact-link-row">
             <div class="contact-link-icon">LINKEDIN</div>
             <div>
               <div class="contact-link-label">linkedin.com/in/madhav-ramakrishnan</div>
               <div class="contact-link-sub">Professional profile</div>
-            </div>
-          </a>
-          <a href="https://drive.google.com/your-resume-link" target="_blank" class="contact-link-row">
-            <div class="contact-link-icon">RESUME</div>
-            <div>
-              <div class="contact-link-label">View Resume (PDF)</div>
-              <div class="contact-link-sub">Swap with your real Drive link</div>
             </div>
           </a>
           <a href="mailto:madhavramakrishnan99@gmail.com" class="contact-link-row">
@@ -495,8 +486,8 @@
 
   <footer class="footer">
     <div class="footer-links">
-      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="about.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>

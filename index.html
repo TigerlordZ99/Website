@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Madhav Ramakrishnan — Game Developer</title>
+  <title>Madhav Ramakrishnan — Game Developer &amp; Software Engineer</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* ---- HERO ---- */
@@ -330,12 +330,12 @@
 <!-- NAV -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">Madhav Ramakrishnan</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="site-nav">
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="about.html">About & Contact</a></li>
   </ul>
-  <button class="nav-hamburger" aria-label="Menu">☰</button>
+  <button class="nav-hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
 </nav>
 
 <div class="page-wrapper">
@@ -344,14 +344,14 @@
   <section style="position:relative;">
     <div class="hero" style="grid-template-columns:1fr;max-width:800px;">
       <div class="hero-content">
-        <div class="hero-eyebrow">Game Developer</div>
+        <div class="hero-eyebrow">Game Developer &amp; Software Engineer</div>
         <h1 class="hero-name glitch">
           Madhav<br>
           <span class="line-gold">Ramakrishnan</span>
         </h1>
         <p class="hero-tagline">
-          I build games and interactive experiences — from VR runners to rhythm fighters.<br>
-          Based in Los Angeles. Open to full-time roles.
+          I build games, gameplay systems, and web and mobile apps.<br>
+          Based in Los Angeles. Open to game development and software engineering roles.
         </p>
         <div class="hero-cta">
           <a href="projects.html" class="btn btn-gold">My Work</a>
@@ -378,18 +378,16 @@
     <div class="projects-grid">
 
       <a href="projects/ghostrunner.html" class="project-thumb fade-up">
-        <img src="ghostrunner.png" alt="Ghost Runner"
-             onerror="this.src='https://placehold.co/600x450/120f1c/f5c518?text=Ghost+Runner'">
+        <img class="preview-placeholder" src="thumbnails/GhostRunner.png" alt="" loading="lazy" decoding="async">
         <div class="project-thumb-info">
-          <span class="project-thumb-tag">REACT NATIVE · GPS · AR</span>
+          <span class="project-thumb-tag">REACT NATIVE · GPS</span>
           <span class="project-thumb-title">Ghost Runner</span>
         </div>
         <div class="project-thumb-arrow">↗</div>
       </a>
 
       <a href="projects/cinerecs.html" class="project-thumb fade-up">
-        <img src="cinerecs.png" alt="CineRecs"
-             onerror="this.src='https://placehold.co/600x450/120f1c/a78bfa?text=CineRecs'">
+        <img class="preview-placeholder" src="thumbnails/CineRecs.png" alt="" loading="lazy" decoding="async">
         <div class="project-thumb-info">
           <span class="project-thumb-tag">NEXT.JS · GEMINI API</span>
           <span class="project-thumb-title">CineRecs</span>
@@ -398,8 +396,7 @@
       </a>
 
       <a href="projects/beatbrawler.html" class="project-thumb fade-up">
-        <img src="beatbrawler.png" alt="BeatBrawler"
-             onerror="this.src='https://placehold.co/600x450/120f1c/e0415a?text=BeatBrawler'">
+        <img class="preview-placeholder" src="thumbnails/BeatBrawler.png" alt="" loading="lazy" decoding="async">
         <div class="project-thumb-info">
           <span class="project-thumb-tag">RHYTHM · UNITY</span>
           <span class="project-thumb-title">BeatBrawler</span>
@@ -408,8 +405,7 @@
       </a>
 
       <a href="projects/vrunner.html" class="project-thumb fade-up">
-        <img src="vrunner.png" alt="VRunner"
-             onerror="this.src='https://placehold.co/600x450/120f1c/a78bfa?text=VRunner'">
+        <img class="preview-placeholder" src="thumbnails/VRunner.png" alt="" loading="lazy" decoding="async">
         <div class="project-thumb-info">
           <span class="project-thumb-tag">VR · UNITY</span>
           <span class="project-thumb-title">VRunner</span>
@@ -418,8 +414,7 @@
       </a>
 
       <a href="projects/dungeon.html" class="project-thumb fade-up">
-        <img src="dungeon_escape.png" alt="Dungeon Escape"
-             onerror="this.src='https://placehold.co/600x450/120f1c/f5c518?text=Dungeon+Escape'">
+        <img class="preview-placeholder" src="thumbnails/DungeonEscape.png" alt="" loading="lazy" decoding="async">
         <div class="project-thumb-info">
           <span class="project-thumb-tag">ROGUELIKE · UNITY</span>
           <span class="project-thumb-title">Dungeon Escape</span>
@@ -439,8 +434,8 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-links">
-      <a href="https://github.com/tigerlordz99" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank">LinkedIn</a>
+      <a href="https://github.com/tigerlordz99" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/madhav-ramakrishnan-763748234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="about.html">Contact</a>
     </div>
     <p class="footer-copy">© 2026 Madhav Ramakrishnan</p>
